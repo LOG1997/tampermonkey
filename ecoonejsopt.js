@@ -5,7 +5,7 @@
  * @version:0.0.2
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 11:00:39
+ * @LastEditTime: 2022-05-25 22:15:01
  * @license MIT
  */
 // ==UserScript==
@@ -45,11 +45,23 @@
    * @param {*} isFontWeight
    * @type {string} weight 字体加粗
    */
+  
+   let FontWeightIndex=32;
   function changeFontWeight(isFontWeight) {
+    let FontWeightText='加粗';
     let FontWeight =
-      document.querySelectorAll(".el-input--suffix")[14].children[0];
-    console.log("字体加粗：", FontWeight);
-    FontWeight.click();
+      document.querySelectorAll(".el-form-item")[FontWeightIndex].children[1].children[0];
+      let FontWeightLabel=document.querySelectorAll(".el-form-item")[FontWeightIndex].children[0].innerHTML;
+      console.log("字体加粗：", FontWeight);    console.log("字体加粗label：", FontWeightLabel);
+      if(FontWeightLabel==FontWeightText){
+        FontWeight.click();
+      }
+      else{
+        FontWeightIndex++;
+        changeFontWeight(isFontWeight);
+        return;
+      }
+
     // 选择下拉框选项
     setTimeout(() => {
       let SelectInput = document.querySelectorAll(".el-select-dropdown")[16]
@@ -103,13 +115,16 @@
       event.preventDefault();
       dialogParam.style.display = "none";
     });
-let draw_url=new RegExp(" https://www.chiiot.cn/#/scada/integrated/pageLibrary/*","g");
+    let draw_url = new RegExp(
+      "https://www.chiiot.cn/#/scada/integrated/pageLibrary/*",
+      "g"
+    );
 
     document.addEventListener("keydown", function (e) {
       if (e.keyCode == 68) {
-        if(!getUrl().match(draw_url)){
-          console.log("路径不匹配")
-          return false
+        if (!getUrl().match(draw_url)) {
+          console.log("路径不匹配");
+          return false;
         }
         if (isFontColor == "") {
           dialogParam.style.display = "block";
