@@ -5,7 +5,7 @@
  * @version:0.0.3
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 22:20:09
+ * @LastEditTime: 2022-05-25 22:30:02
  * @license MIT
  */
 // ==UserScript==
@@ -29,10 +29,11 @@
    * @type {string} color 字体颜色
    */
   function changeFontColor(isFontColor) {
+    let FontColorInputIndex=29;
     // 获取字体颜色选择格
     let FontColorInput =
-      document.querySelectorAll(".el-input--small")[31].children[0];
-
+      document.querySelectorAll(".el-form-item")[FontColorInputIndex].children[1].children[1].children[0];
+    
     console.log("字体颜色：", FontColorInput);
     // 改变字体颜色
     FontColorInput.focus();
@@ -101,6 +102,7 @@
     let colorPicker = document.querySelector("#colorpick");
     let isFontBold = document.querySelector("#isFontBold");
     let submit = document.querySelector("#submit");
+    let dialogParam=document.querySelector("#dialogParam");
     colorPicker.addEventListener("change", watchColorPicker, false);
     isFontBold.addEventListener("change", watchIsFontBold, false);
     function watchColorPicker(event) {
