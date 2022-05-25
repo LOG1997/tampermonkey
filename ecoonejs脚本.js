@@ -5,7 +5,7 @@
  * @version:0.0.1
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 10:08:41
+ * @LastEditTime: 2022-05-25 09:57:00
  * @license MIT
  */
 // ==UserScript==
@@ -60,6 +60,9 @@
     // Your code here...
   
     setTimeout(() => {
+      console.log("加载脚本成功");
+      var x = document.getElementById("app").childNodes[0].childNodes[1];
+
       // 弹窗输入参数，执行哪些操作
       let dialogParam = document.createElement("div");
       dialogParam.id = "dialogParam";
@@ -74,7 +77,6 @@
       let colorPicker = document.querySelector("#colorpick");
       let isFontBold = document.querySelector("#isFontBold");
       let submit = document.querySelector("#submit");
-      let calcel = document.querySelector("#calcel");
       colorPicker.addEventListener("change", watchColorPicker, false);
       isFontBold.addEventListener("change", watchIsFontBold, false);
       function watchColorPicker(event) {
