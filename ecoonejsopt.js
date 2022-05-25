@@ -2,16 +2,16 @@
  * @Author: LOG
  * @FilePath: \ecoone脚本\ecoonejsopt.js
  * @Descripttion:ecoone平台脚本操作
- * @version:0.0.2
+ * @version:0.0.3
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 22:15:01
+ * @LastEditTime: 2022-05-25 22:20:09
  * @license MIT
  */
 // ==UserScript==
 // @name         修改字体颜色，字体加粗
 // @namespace    http://tampermonkey.net/
-// @version      0.0.2
+// @version      0.0.3
 // @description  ecoone平台脚本操作
 // @author       You
 // @match        http://*/*
@@ -79,9 +79,9 @@
 
     return url;
   }
-  setTimeout(() => {
-    console.log("加载脚本成功");
-    var x = document.getElementById("app").childNodes[0].childNodes[1];
+  // 生成弹窗，配置参数
+  function createDialog(){
+    const x = document.getElementById("app").childNodes[0].childNodes[1];
 
     // 弹窗输入参数，执行哪些操作
     let dialogParam = document.createElement("div");
@@ -91,6 +91,10 @@
     dialogParam.style.cssText =
       "display:none;background:white;width:400px;height:400px;text-align:center;position:absolute;top:300px;cursor:pointer;";
     x.appendChild(dialogParam);
+  }
+  setTimeout(() => {
+    console.log("加载脚本成功");
+    createDialog();
     var isFontColor = "";
     let isFontWeight = 0;
     let color_span = document.getElementById("color_value");
@@ -119,7 +123,7 @@
       "https://www.chiiot.cn/#/scada/integrated/pageLibrary/*",
       "g"
     );
-
+// 监听按键D
     document.addEventListener("keydown", function (e) {
       if (e.keyCode == 68) {
         if (!getUrl().match(draw_url)) {
