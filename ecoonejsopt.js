@@ -1,17 +1,17 @@
 /*
  * @Author: LOG
- * @FilePath: \ecoone脚本\ecoonejs脚本.js
+ * @FilePath: \ecoone脚本\ecoonejsopt.js
  * @Descripttion:ecoone平台脚本操作
- * @version:0.0.1
+ * @version:0.0.2
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 09:57:00
+ * @LastEditTime: 2022-05-25 10:19:16
  * @license MIT
  */
 // ==UserScript==
 // @name         修改字体颜色，字体加粗
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.0.2
 // @description  ecoone平台脚本操作
 // @author       You
 // @match        http://*/*
