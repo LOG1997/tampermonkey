@@ -5,7 +5,7 @@
  * @version:0.0.1
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 09:57:00
+ * @LastEditTime: 2022-05-25 10:08:41
  * @license MIT
  */
 // ==UserScript==
@@ -22,7 +22,11 @@
 
 (function () {
     "use strict";
-  
+  /**
+   * 
+   * @param {*} isFontColor 
+   * @type {string} color 字体颜色
+   */
     function changeFontColor(isFontColor) {
       let FontColorInput =
         document.querySelectorAll(".el-input--small")[31].children[0];
@@ -34,6 +38,11 @@
       FontColorInput.dispatchEvent(new Event("input"));
       FontColorInput.blur();
     }
+    /**
+     * 
+     * @param {*} isFontWeight 
+     * @type {string} weight 字体加粗
+     */
     function changeFontWeight(isFontWeight) {
       let FontWeight =
         document.querySelectorAll(".el-input--suffix")[14].children[0];
@@ -51,21 +60,6 @@
     // Your code here...
   
     setTimeout(() => {
-      //   按钮
-      var button = document.createElement("div"); //创建一个input对象（提示框按钮）
-      button.id = "id001";
-      button.innerHTML = "加载脚本";
-      button.style.cssText =
-        "width:100px;height:100px;background-color:red;text-align:center;line-height:100px;position:absolute;top:300px;cursor:pointer;";
-      console.log("加载脚本成功");
-      var x = document.getElementById("app").childNodes[0].childNodes[1];
-      //在浏览器控制台可以查看所有函数，ctrl+shift+I 调出控制台，在Console窗口进行实验测试
-      x.appendChild(button);
-      //绑定按键点击功能
-      button.onclick = function () {
-        changeFont();
-        return;
-      };
       // 弹窗输入参数，执行哪些操作
       let dialogParam = document.createElement("div");
       dialogParam.id = "dialogParam";
