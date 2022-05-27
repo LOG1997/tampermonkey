@@ -5,7 +5,7 @@
  * @version:0.0.3
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-25 22:30:02
+ * @LastEditTime: 2022-05-27 15:11:15
  * @license MIT
  */
 // ==UserScript==
@@ -29,11 +29,12 @@
    * @type {string} color 字体颜色
    */
   function changeFontColor(isFontColor) {
-    let FontColorInputIndex=29;
+    let FontColorInputIndex = 29;
     // 获取字体颜色选择格
     let FontColorInput =
-      document.querySelectorAll(".el-form-item")[FontColorInputIndex].children[1].children[1].children[0];
-    
+      document.querySelectorAll(".el-form-item")[FontColorInputIndex]
+        .children[1].children[1].children[0];
+
     console.log("字体颜色：", FontColorInput);
     // 改变字体颜色
     FontColorInput.focus();
@@ -46,22 +47,25 @@
    * @param {*} isFontWeight
    * @type {string} weight 字体加粗
    */
-  
-   let FontWeightIndex=32;
+
+  let FontWeightIndex = 32;
   function changeFontWeight(isFontWeight) {
-    let FontWeightText='加粗';
+    let FontWeightText = "加粗";
     let FontWeight =
-      document.querySelectorAll(".el-form-item")[FontWeightIndex].children[1].children[0];
-      let FontWeightLabel=document.querySelectorAll(".el-form-item")[FontWeightIndex].children[0].innerHTML;
-      console.log("字体加粗：", FontWeight);    console.log("字体加粗label：", FontWeightLabel);
-      if(FontWeightLabel==FontWeightText){
-        FontWeight.click();
-      }
-      else{
-        FontWeightIndex++;
-        changeFontWeight(isFontWeight);
-        return;
-      }
+      document.querySelectorAll(".el-form-item")[FontWeightIndex].children[1]
+        .children[0];
+    let FontWeightLabel =
+      document.querySelectorAll(".el-form-item")[FontWeightIndex].children[0]
+        .innerHTML;
+    console.log("字体加粗：", FontWeight);
+    console.log("字体加粗label：", FontWeightLabel);
+    if (FontWeightLabel == FontWeightText) {
+      FontWeight.click();
+    } else {
+      FontWeightIndex++;
+      changeFontWeight(isFontWeight);
+      return;
+    }
 
     // 选择下拉框选项
     setTimeout(() => {
@@ -81,7 +85,7 @@
     return url;
   }
   // 生成弹窗，配置参数
-  function createDialog(){
+  function createDialog() {
     const x = document.getElementById("app").childNodes[0].childNodes[1];
 
     // 弹窗输入参数，执行哪些操作
@@ -93,6 +97,39 @@
       "display:none;background:white;width:400px;height:400px;text-align:center;position:absolute;top:300px;cursor:pointer;";
     x.appendChild(dialogParam);
   }
+  // 修改方框长度
+  function changeBoxSizeWidth() {
+    let BoxSizeWidthIndex = 12;
+    let BoxSizeWidth =
+      document.querySelectorAll(".el-form-item")[BoxSizeWidthIndex].children[1]
+        .children[0].children[0];
+    console.log("方框大小：", BoxSizeWidth);
+    BoxSizeWidth.focus();
+    BoxSizeWidth.value = 200;
+    BoxSizeWidth.dispatchEvent(new Event("input"));
+    BoxSizeWidth.blur();
+  }
+  // 保存
+  function handleSave() {
+    let saveButton = document.querySelectorAll(
+      ".drawPage_pageItem_container_toolBox"
+    )[0].children[9];
+
+    console.log("保存按钮：", saveButton);
+    saveButton.click();
+  }
+  // 插入input元素输入宽度
+  function insertInputWidth() {
+    const x = document.getElementById("app").childNodes[0].childNodes[1];
+    let inputWidth = document.createElement("div");
+    inputWidth.id = "inputWidth";
+    inputWidth.innerHTML =
+      '<label for="inputWidthValue">宽度</label><input type="text" id="inputWidthValue"><button id="hideInputWidth">隐藏</button>';
+    inputWidth.style.cssText =
+      "display:block;width:400px;height:400px;text-align:center;position:absolute;top:300px;cursor:pointer;background:red";
+      x.appendChild(inputWidth);
+    console.log("插入了input元素");
+  }
   setTimeout(() => {
     console.log("加载脚本成功");
     createDialog();
@@ -102,7 +139,7 @@
     let colorPicker = document.querySelector("#colorpick");
     let isFontBold = document.querySelector("#isFontBold");
     let submit = document.querySelector("#submit");
-    let dialogParam=document.querySelector("#dialogParam");
+    let dialogParam = document.querySelector("#dialogParam");
     colorPicker.addEventListener("change", watchColorPicker, false);
     isFontBold.addEventListener("change", watchIsFontBold, false);
     function watchColorPicker(event) {
@@ -125,7 +162,7 @@
       "https://www.chiiot.cn/#/scada/integrated/pageLibrary/*",
       "g"
     );
-// 监听按键D
+    // 监听按键D
     document.addEventListener("keydown", function (e) {
       if (e.keyCode == 68) {
         if (!getUrl().match(draw_url)) {
@@ -140,6 +177,43 @@
         console.log("你按下了D键", isFontColor, isFontWeight);
         changeFontColor(isFontColor);
         changeFontWeight(isFontWeight);
+      }
+    });
+    // 监听按键ctrl+s
+    document.addEventListener("keydown", function (e) {
+      if (e.keyCode == 83 && e.ctrlKey) {
+        e.preventDefault();
+        if (!getUrl().match(draw_url)) {
+          console.log("路径不匹配");
+          return false;
+        }
+        handleSave();
+      }
+    });
+    // 监听按键w
+    document.addEventListener("keydown", function (e) {
+      if (e.keyCode == 87) {
+        console.log("你按下了W键");
+        // 是否存在这个元素，不存在才插入
+        if(!document.getElementById("inputWidth")){
+        insertInputWidth();
+        }
+        // 监听是否隐藏input元素
+        let hideInputWidth=document.querySelector("#hideInputWidth");
+        hideInputWidth.addEventListener("click",function(event){
+          event.preventDefault();
+          document.getElementById("inputWidth").style.display="none";
+        })
+        let inputWidthValue = document.querySelector("#inputWidthValue");
+        // 监听enter键
+        inputWidthValue.addEventListener("keydown",function(e){
+          if(e.keyCode==13){
+            e.preventDefault();
+            let inputWidthValue = document.querySelector("#inputWidthValue");
+            let inputWidth = document.querySelector("#inputWidth");
+          }
+        })
+        inputWidthValue.focus();
       }
     });
   }, 5000);
