@@ -5,7 +5,7 @@
  * @version:0.0.3
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-27 15:11:15
+ * @LastEditTime: 2022-05-27 17:20:29
  * @license MIT
  */
 // ==UserScript==
@@ -164,7 +164,7 @@
     );
     // 监听按键D
     document.addEventListener("keydown", function (e) {
-      if (e.keyCode == 68) {
+      if (e.keyCode == 68 &&e.ctrlKey) {
         if (!getUrl().match(draw_url)) {
           console.log("路径不匹配");
           return false;
@@ -192,7 +192,7 @@
     });
     // 监听按键w
     document.addEventListener("keydown", function (e) {
-      if (e.keyCode == 87) {
+      if (e.keyCode == 87 && e.ctrlKey) {
         console.log("你按下了W键");
         // 是否存在这个元素，不存在才插入
         if(!document.getElementById("inputWidth")){
