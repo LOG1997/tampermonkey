@@ -5,7 +5,7 @@
  * @version:0.0.3
  * @Date: 2022-05-24 09:44:12
  * @LastEditors: LOG
- * @LastEditTime: 2022-05-27 17:20:29
+ * @LastEditTime: 2022-05-27 23:35:57
  * @license MIT
  */
 // ==UserScript==
@@ -162,7 +162,7 @@
       "https://www.chiiot.cn/#/scada/integrated/pageLibrary/*",
       "g"
     );
-    // 监听按键D
+    // 监听按键ctrl+D
     document.addEventListener("keydown", function (e) {
       if (e.keyCode == 68 &&e.ctrlKey) {
         if (!getUrl().match(draw_url)) {
@@ -190,7 +190,7 @@
         handleSave();
       }
     });
-    // 监听按键w
+    // 监听按键ctrl+W
     document.addEventListener("keydown", function (e) {
       if (e.keyCode == 87 && e.ctrlKey) {
         console.log("你按下了W键");
