@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ecoone报警配置快捷键
 // @namespace    http://tampermonkey.net/
-// @version      0.31
+// @version      0.32
 // @description  ecoone报警配置
 // @author       You
 // @match        https://www.chiiot.cn/
@@ -11,15 +11,6 @@
 // ==/UserScript==
 
 (function () {
-  /*
-   * @Author: LOG
-   * @FilePath: \油猴脚本\ecoone报警配置快捷键.js
-   * @Descripttion:
-   * @version:
-   * @Date: 2022-05-30 10:06:57
-   * @LastEditors: LOG
-   * @LastEditTime: 2022-05-30 10:14:05
-   */
   // 选择0或1报警
   function clickBreak0(rowIndex) {
     // 0是无报警，1是取0时报警，2是取1时报警
@@ -102,10 +93,7 @@
     /https:\/\/www.chiiot.cn\/#\/scada\/integrated\/pageLibrary\//;
   // 监听按键
   document.addEventListener("keydown", function (e) {
-    if (!draw_url.test(getUrl())) {
-      console.log("路径不匹配");
-      return false;
-    }
+
     // 按键ctrl+1、2、3、4分别对应设置高级报警中级报警低级报警事件
     if (
       (e.keyCode == 49 ||
@@ -128,7 +116,6 @@
         replaceText(text_old, text_new);
       }, 300);
       // 需要替换文本时才执行这部操作
-      console.log("新旧：", text_old, text_new);
       if (text_old != "" && text_new != "") {
         setTimeout(() => {
           replaceText(text_old, text_new);
@@ -145,6 +132,11 @@
       text_new = window.prompt("新文本: ");
     }
     // ctrl+s保存
+    console.log("新旧：", text_old, text_new);
+    if (!draw_url.test(getUrl())) {
+      console.log("路径不匹配");
+      return false;
+    }
     if (e.keyCode == 83 && e.ctrlKey) {
       e.preventDefault();
       handleSave();
