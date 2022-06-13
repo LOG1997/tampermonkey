@@ -1,0 +1,19 @@
+{
+  "name": "tampermonkey",
+  "version": "1.0.0",
+  "description": "tampermonkey js for ecoone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LOG1997/ecoone-Option-script.git"
+  },
+  "author": "log1997",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LOG1997/ecoone-Option-script/issues"
+  },
+  "homepage": "https://github.com/LOG1997/ecoone-Option-script#readme"
+}
