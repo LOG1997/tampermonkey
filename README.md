@@ -7,9 +7,9 @@
  * @version: 
  * @Date: 2022-05-25 09:55:59
  * @LastEditors: LOG
- * @LastEditTime: 2022-06-13 11:50:29
+ * @LastEditTime: 2022-06-13 12:00:41
     -->
-/docker/v/:user/:repo?arch=amd64&sort=date
+![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/log1997/ecoone-Option-script?style=plastic)
 ## ecoone操作脚本
 ### 目前功能
 1. 修改字体样式

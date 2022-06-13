@@ -1,6 +1,6 @@
 {
   "name": "tampermonkey",
-  "version": "1.0.0",
+  "version": "1.0.0-Alpha",
   "description": "tampermonkey js for ecoone",
   "main": "index.js",
   "scripts": {
