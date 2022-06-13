@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ecoone报警配置快捷键
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.31
 // @description  ecoone报警配置
 // @author       You
 // @match        https://www.chiiot.cn/
