@@ -130,11 +130,13 @@
     }
     // ctrl+`输入需要旧的文本和新文本
     if (e.keyCode == 192 && e.ctrlKey) {
+      e.preventDefault();
       text_old = window.prompt("原始文本: ");
       text_new = window.prompt("新文本: ");
     }
     // ctrl+s保存
     if (e.keyCode == 83 && e.ctrlKey) {
+      e.preventDefault();
       handleSave();
     }
   });
