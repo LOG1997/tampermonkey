@@ -62,7 +62,7 @@
   function replaceText(text_old, text_new) {
     let braekInputCon =
       document.querySelectorAll(".el-input--small")[13].children[0];
-    console.log("replaceTSTSTSTST",text_old,text_new)
+    console.log("replaceTSTSTSTST", text_old, text_new);
     let input_text = braekInputCon.value;
     let input_text_new = input_text.replace(text_old, text_new);
 
@@ -70,14 +70,33 @@
     braekInputCon.value = input_text_new;
     braekInputCon.dispatchEvent(new Event("input"));
   }
+  // 保存
+  function handleSave() {
+    let saveButton = document.querySelectorAll(
+      ".drawPage_pageItem_container_toolBox"
+    )[0].children[9];
 
-  // console.log("描述：", braekInputCon);
-
+    console.log("保存按钮：", saveButton);
+    saveButton.click();
+  }
+  // 获取当前页面url
+  function getUrl() {
+    let url = window.location.href;
+    console.log("url", url);
+    return url;
+  }
   // 旧文本和新文本
   let text_old = "";
-  let text_new = "";
+  let text_new = ""; 
+  // 只在指定的页面url内执行
+  const draw_url=/https:\/\/www.chiiot.cn\/#\/scada\/integrated\/pageLibrary\//;
   // 监听按键
   document.addEventListener("keydown", function (e) {
+    if (!draw_url.test(getUrl())) {
+      console.log("路径不匹配");
+      return false;
+    }
+    // 按键ctrl+1、2、3、4分别对应设置高级报警中级报警低级报警事件
     if (
       (e.keyCode == 49 ||
         e.keyCode == 50 ||
@@ -99,8 +118,8 @@
         replaceText(text_old, text_new);
       }, 300);
       // 需要替换文本时才执行这部操作
-          console.log("新旧：",text_old,text_new)
-      if (text_old != ''&&text_new!='') {
+      console.log("新旧：", text_old, text_new);
+      if (text_old != "" && text_new != "") {
         setTimeout(() => {
           replaceText(text_old, text_new);
         }, 500);
@@ -114,6 +133,9 @@
       text_old = window.prompt("原始文本: ");
       text_new = window.prompt("新文本: ");
     }
-    
+    // ctrl+s保存
+    if (e.keyCode == 83 && e.ctrlKey) {
+      handleSave();
+    }
   });
 })();
