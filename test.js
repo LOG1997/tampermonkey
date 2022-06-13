@@ -5,15 +5,15 @@
  * @version: 
  * @Date: 2022-06-13 11:39:45
  * @LastEditors: LOG
- * @LastEditTime: 2022-06-13 11:44:18
+ * @LastEditTime: 2022-06-13 12:07:45
  */
 
-  // 只在指定的页面url内执行
-  const draw_url=/https:\/\/www.chiiot.cn\/#\/scada\/integrated\/pageLibrary\//;
+  // 预览
+  function handlePreview() {
+    let previewButton = document.querySelectorAll(
+      ".drawPage_pageItem_container_toolBox"
+    )[0].children[6];
 
-  function getUrl() {
-    let url = window.location.href;
-    return url;
+    console.log("保存按钮：", previewButton);
+    previewButton.click();
   }
-  console.log("getUrl))):",getUrl());
-  console.log(draw_url.test(getUrl()));

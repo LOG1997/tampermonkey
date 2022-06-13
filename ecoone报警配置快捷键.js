@@ -79,6 +79,15 @@
     console.log("保存按钮：", saveButton);
     saveButton.click();
   }
+  // 预览
+  function handlePreview() {
+    let previewButton = document.querySelectorAll(
+      ".drawPage_pageItem_container_toolBox"
+    )[0].children[6];
+
+    console.log("预览按钮：", previewButton);
+    previewButton.click();
+  }
   // 获取当前页面url
   function getUrl() {
     let url = window.location.href;
@@ -87,9 +96,10 @@
   }
   // 旧文本和新文本
   let text_old = "";
-  let text_new = ""; 
+  let text_new = "";
   // 只在指定的页面url内执行
-  const draw_url=/https:\/\/www.chiiot.cn\/#\/scada\/integrated\/pageLibrary\//;
+  const draw_url =
+    /https:\/\/www.chiiot.cn\/#\/scada\/integrated\/pageLibrary\//;
   // 监听按键
   document.addEventListener("keydown", function (e) {
     if (!draw_url.test(getUrl())) {
@@ -138,6 +148,11 @@
     if (e.keyCode == 83 && e.ctrlKey) {
       e.preventDefault();
       handleSave();
+    }
+    // ctrl+p预览
+    if (e.keyCode == 80 && e.ctrlKey) {
+      e.preventDefault();
+      handlePreview();
     }
   });
 })();
