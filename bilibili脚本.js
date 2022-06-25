@@ -46,6 +46,14 @@
         let refresh_button = document.querySelectorAll(".roll-btn-wrap")[0].children[0];
         refresh_button.click();
       }
+    //   监听数字键盘
+    if(event.keyCode>=48 && event.keyCode<=57){
+      let num = event.keyCode-48>0?event.keyCode-48:10;
+      let recommend_video = document.querySelectorAll(".recommend-container__2-line")[0].children[num];
+      console.log('recommend_video',recommend_video);
+      recommend_video[num].click();
+    }
+
     });
   }
 })();
