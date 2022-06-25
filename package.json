@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,5 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  },
-
+  }
 }
