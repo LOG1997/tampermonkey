@@ -13,7 +13,7 @@
 <br />
 [github仓库地址](https://github.com/LOG1997/ecoone-Option-script)  
 [油猴脚本地址](https://greasyfork.org/zh-CN/scripts/446117-ecoone%E6%8A%A5%E8%AD%A6%E9%85%8D%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE)
-## ecoone操作脚本1212
+## ecoone操作脚本
 ### 目前功能
 1. 修改字体样式
     选中字体后，按键盘‘D’触发，第一次触发会要求选择字体颜色和是否加粗字体。
