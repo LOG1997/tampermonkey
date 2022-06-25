@@ -58,9 +58,9 @@
         let num = event.keyCode - 48 > 0 ? event.keyCode - 48 : 10;
         let recommend_video = document.querySelectorAll(
           ".recommend-container__2-line"
-        )[0].children[num];
+        )[0].children[num].children[1].children[0];
         console.log("recommend_video", recommend_video);
-        recommend_video[num].click();
+        recommend_video.click();
       }
     });
   }
