@@ -1,21 +1,13 @@
-/*
- * @Author: LOG
- * @FilePath: \油猴脚本\bilibili脚本.js
- * @Descripttion:
- * @version:
- * @Date: 2022-06-08 20:44:17
- * @LastEditors: LOG
- * @LastEditTime: 2022-06-08 21:12:21
- */
 // ==UserScript==
 // @name         bilibili script
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
+// @version      0.2
+// @description  bilibili脚本
 // @author       You
 // @match        https://www.bilibili.com/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bilibili.com
 // @grant        none
+// @license MIT
 // ==/UserScript==
 
 (function () {
