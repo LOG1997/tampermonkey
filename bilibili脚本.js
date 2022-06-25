@@ -22,6 +22,7 @@
     'use strict';
 
     // Your code here...
+    // bilibili网站加载成功后执行，去除一些模块
     window.onload = function () {
         //方法内容
         let section_index=[6,7,8,9,10,11,13,15,16,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
@@ -34,9 +35,22 @@
         let bili_footer=document.querySelectorAll(".bili-footer");
         // console.log('bili_footer',bili_footer);
         bili_footer[0].remove();
+        // 执行刷新操作
+        RefreshRecommend();
+    }
 
-
-
+    // 快捷键，快捷刷新推荐视频
+    function RefreshRecommend(){
+        // alt+r按键监听
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.keyCode == 82) {
+                // console.log('alt+r');
+                // 快捷键按下后，执行的方法
+                let refresh_button=document.querySelectorAll(".roll-btn-wrap")[0];
+                console.log('refresh_button🚁🚁🚁', refresh_button);
+                refresh_button.click();
+            }
+        });
     }
 
 })();
