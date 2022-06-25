@@ -44,6 +44,10 @@
   function RefreshRecommend() {
     // alt+r按键监听
     document.addEventListener("keydown", function (event) {
+      // 检测到光标聚焦于输入框时，则不触发快捷键事件。
+      if(['input', 'textarea'].indexOf(event.target.tagName.toLowerCase()) > -1){
+        return false;
+      }
       if (event.altKey && event.keyCode == 82) {
         event.preventDefault();
         // console.log('alt+r');
@@ -53,13 +57,14 @@
         refresh_button.click();
       }
       //   监听数字键盘
-      if (event.keyCode >= 48 && event.keyCode <= 57) {
+      if (event.keyCode >= 48 && event.keyCode <= 57&&!event.ctrlKey) {
         event.preventDefault();
         let num = event.keyCode - 48 > 0 ? event.keyCode - 48 : 10;
+        // 获取推荐视频的卡片
         let recommend_video = document.querySelectorAll(
           ".recommend-container__2-line"
         )[0].children[num].children[1].children[0];
-        console.log("recommend_video", recommend_video);
+        // 点击相应卡片
         recommend_video.click();
       }
     });
