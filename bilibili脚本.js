@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili script
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  bilibili网站操作脚本
 // @author       You
 // @match        https://www.bilibili.com/
