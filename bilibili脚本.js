@@ -2,7 +2,7 @@
 // @name         bilibili script
 // @namespace    http://tampermonkey.net/
 // @version      0.2
-// @description  bilibili脚本
+// @description  bilibili网站操作脚本
 // @author       You
 // @match        https://www.bilibili.com/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bilibili.com
