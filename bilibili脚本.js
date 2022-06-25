@@ -44,8 +44,10 @@
         // alt+r按键监听
         document.addEventListener('keydown', function(event) {
             if (event.altKey && event.keyCode == 82) {
+                event.preventDefault();
                 // console.log('alt+r');
                 // 快捷键按下后，执行的方法
+
                 let refresh_button=document.querySelectorAll(".roll-btn-wrap")[0];
                 console.log('refresh_button🚁🚁🚁', refresh_button);
                 refresh_button.click();
