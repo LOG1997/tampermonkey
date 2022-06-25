@@ -40,6 +40,7 @@
     // alt+r按键监听
     document.addEventListener("keydown", function (event) {
       if (event.altKey && event.keyCode == 82) {
+        
         event.preventDefault();
         // console.log('alt+r');
         // 快捷键按下后，执行的方法
@@ -48,6 +49,8 @@
       }
     //   监听数字键盘
     if(event.keyCode>=48 && event.keyCode<=57){
+        
+        event.preventDefault();
       let num = event.keyCode-48>0?event.keyCode-48:10;
       let recommend_video = document.querySelectorAll(".recommend-container__2-line")[0].children[num];
       console.log('recommend_video',recommend_video);
