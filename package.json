@@ -1,17 +1,18 @@
 {
-  "name": "tem",
-  "version": "0.0.1",
-  "description": "油猴脚本集合",
+  "name": "temphoky",
+  "version": "1.0.0",
+  "description": "油猴脚本",
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "prepare": "husky install"
+    "commitmsg": "commitlint -e $GIT_PARAMS",
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LOG1997/ecoone-Option-script.git"
   },
   "keywords": [
+    "js",
     "script"
   ],
   "author": "log",
@@ -21,19 +22,11 @@
   },
   "homepage": "https://github.com/LOG1997/ecoone-Option-script#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
-    "cz-customizable": "^6.3.0",
     "husky": "^8.0.1"
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-customizable"
+      "path": "cz-customizable"
     }
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  }
 }
