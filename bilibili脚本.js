@@ -30,7 +30,12 @@
     let bili_footer = document.querySelectorAll(".bili-footer");
     // console.log('bili_footer',bili_footer);
     bili_footer[0].remove();
-    console.log('%csuccess%c:','background:#47c00e;padding:3px;border-radius:3px','','脚本加载成功');
+    console.log(
+      "%csuccess%c:",
+      "background:#47c00e;padding:3px;border-radius:3px",
+      "",
+      "脚本加载成功"
+    );
     // 执行刷新操作
     RefreshRecommend();
   };
@@ -40,23 +45,23 @@
     // alt+r按键监听
     document.addEventListener("keydown", function (event) {
       if (event.altKey && event.keyCode == 82) {
-        
         event.preventDefault();
         // console.log('alt+r');
         // 快捷键按下后，执行的方法
-        let refresh_button = document.querySelectorAll(".roll-btn-wrap")[0].children[0];
+        let refresh_button =
+          document.querySelectorAll(".roll-btn-wrap")[0].children[0];
         refresh_button.click();
       }
-    //   监听数字键盘
-    if(event.keyCode>=48 && event.keyCode<=57){
-        
+      //   监听数字键盘
+      if (event.keyCode >= 48 && event.keyCode <= 57) {
         event.preventDefault();
-      let num = event.keyCode-48>0?event.keyCode-48:10;
-      let recommend_video = document.querySelectorAll(".recommend-container__2-line")[0].children[num];
-      console.log('recommend_video',recommend_video);
-      recommend_video[num].click();
-    }
-
+        let num = event.keyCode - 48 > 0 ? event.keyCode - 48 : 10;
+        let recommend_video = document.querySelectorAll(
+          ".recommend-container__2-line"
+        )[0].children[num];
+        console.log("recommend_video", recommend_video);
+        recommend_video[num].click();
+      }
     });
   }
 })();
