@@ -4,8 +4,7 @@
   "description": "油猴脚本",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "test": "test"
   },
   "repository": {
     "type": "git",
@@ -22,16 +21,19 @@
   },
   "homepage": "https://github.com/LOG1997/ecoone-Option-script#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "husky": "^8.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "config": {
     "commitizen": {
       "path": "cz-customizable"
     }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }  
   }
 }
