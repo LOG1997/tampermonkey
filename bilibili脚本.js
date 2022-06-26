@@ -89,22 +89,6 @@
             '未获取到元素'
           );
         }
-        // 获取搜索页面的视频卡片
-        try {
-          let search_video = document.querySelectorAll(
-            ".bili-video-card__wrap"
-          )[num].children[0];
-          console.log("recommend_video🚁🚁🚁", search_video);
-          // 点击相应卡片
-          search_video.click();
-        } catch (error) {
-          console.log(
-            "%cerror%c:",
-            "background:#ff0000;padding:3px;border-radius:3px",
-            "",
-            '未获取到元素'
-          );
-        }
       }
     });
   }
@@ -125,7 +109,6 @@
           let search_video = document.querySelectorAll(
             ".bili-video-card__wrap"
           )[num].children[0];
-          console.log("recommend_video🚁🚁🚁", search_video);
           // 点击相应卡片
           search_video.click();
         } catch (error) {
