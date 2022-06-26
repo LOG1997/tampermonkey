@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili script
 // @namespace    http://tampermonkey.net/
-// @version      0.35
+// @version      0.36.1
 // @description  bilibili网站操作脚本
 // @author       You
 // @match        https://www.bilibili.com/
@@ -78,9 +78,6 @@
           let recommend_video = document.querySelectorAll(
             ".recommend-container__2-line"
           )[0].children[num].children[1].children[0];
-          if (!recommend_video) {
-            console.log("recommend_video🚁🚁🚁");
-          }
           // 点击相应卡片
           recommend_video.click();
           return;
@@ -89,7 +86,7 @@
             "%cerror%c:",
             "background:#ff0000;padding:3px;border-radius:3px",
             "",
-            error
+            '未获取到元素'
           );
         }
         // 获取搜索页面的视频卡片
@@ -105,7 +102,7 @@
             "%cerror%c:",
             "background:#ff0000;padding:3px;border-radius:3px",
             "",
-            error
+            '未获取到元素'
           );
         }
       }
