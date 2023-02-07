@@ -2,7 +2,7 @@
 // @name         html视频快捷键-log
 // @namespace    http://tampermonkey.net/
 // @version      0.0.1
-// @description  html视频快捷键-log
+// @description  html视频快捷键-logz,h为快退，l为快退
 // @author       Log
 // @match         *://*/*
 // @exclude     https://www.bilibili.com/*
